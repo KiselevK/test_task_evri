@@ -144,7 +144,8 @@ resultFolderPath="jData$(date '+%m%d_%H%M%S')"
 
 echo $resultFolderPath
 # Jmeter execution
-jmeter -n -t blazedemo_h60d20f15b5.jmx \
+JMETER_CMD="${JMETER_PATH:-jmeter}"
+$JMETER_CMD -n -t blazedemo_h60d20f15b5.jmx \
     ${distribution} \
     -JbaseUrl="$baseUrl" \
     -Jprotocol="$protocol" \

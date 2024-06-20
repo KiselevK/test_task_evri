@@ -178,7 +178,7 @@ resource "null_resource" "start_jmeter_test" {
       "sleep 10s",
       "chmod -R 775 src",
       "cd src",
-      "source /home/ubuntu/.bashrc",
+      "export JMETER_PATH=/home/ubuntu/jmeter/bin/jmeter",
       "JVM_ARGS=\"${var.jvm_args}\" && export JVM_ARGS",
       "screen -dmS jmeter_session bash -c './jmeter_test.sh ${var.test_args} ${local.jmeter_server_ips} > /home/ubuntu/jmeter-clien.log 2>&1'",
       "sleep 5s"
