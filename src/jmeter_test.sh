@@ -16,7 +16,7 @@ totalThroughputOp3Home=60
 totalThroughputOp3Dest=20
 totalThroughputOp3Flight=25
 distribution=""
-
+defReportPort=8080
 
 # Base help
 print_help() {
@@ -115,6 +115,10 @@ while [ $# -gt 0 ]; do
       print_help
       exit 0
       ;;
+    -defReportPort)
+      defReportPort="$2"
+      shift 2
+      ;;
     *)
       echo "Unknown parameter: $1"
       print_help
@@ -166,16 +170,6 @@ $JMETER_CMD -n -t blazedemo_h60d20f15b5.jmx \
 
 
 ##### DOCKER POWER
-defReportPort=8080
-
-while true; do
-    if ! lsof -i:$defReportPort >/dev/null; then
-        break
-    fi
-    defReportPort=$((defReportPort + 1))
-done
-
-
 docker build -t jmeter-report --build-arg jmeter_report_path=$resultFolderPath/out .
 docker run -d -p $defReportPort:80 jmeter-report
 

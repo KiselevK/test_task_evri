@@ -4,3 +4,4 @@ terraform-jmeter-distribution/terraform.tfstate.backup
 terraform-jmeter-distribution/terraform.tfstate
 .DS_Store
 terraform-jmeter-distribution/Test.pem
+terraform-jmeter-distribution/.terraform.tfstate.lock.info
