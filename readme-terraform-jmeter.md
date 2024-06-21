@@ -14,7 +14,16 @@ The `variables.tf` file defines the input variables used in the Terraform config
 
 ### output.tf
 
-The `output.tf` file defines the outputs for the Terraform setup. It specifies the information to be displayed after the infrastructure is provisioned, such as the public IP addresses of the EC2 instances.
+The `output.tf` file defines the outputs for the Terraform setup. It specifies the information to be displayed after the infrastructure is provisioned, such as the public IP addresses of the EC2 instances. Example:
+
+```
+aws_ami = "ami-039258d4169293e75"
+jmeter_client_instances_id = "Jmeter Client = 35.159.17.165"
+jmeter_client_instances_ssh = "Jmeter Client ssh conection string = ssh -i 'Test.pem' ubuntu@ec2-35-159-17-165.eu-central-1.compute.amazonaws.com"
+jmeter_report_link = "http://ec2-35-159-17-165.eu-central-1.compute.amazonaws.com:8080-8085/index.html"
+jmeter_server_instances_id = {}
+jmeter_server_instances_ssh = {}
+```
 
 ### server_user_data.sh.tpl
 
@@ -27,31 +36,24 @@ The `client_user_data.sh.tpl` file is a template for the user data script that w
 ## How to Use
 
 1. **Install Terraform**: Make sure you have Terraform installed on your machine. You can download it from the [Terraform website](https://www.terraform.io/downloads.html).
-
 2. **AWS Credentials**: Ensure that your AWS credentials are configured. You can set them up using the AWS CLI or by setting environment variables.
-
 3. **Configure Variables**: Update the `variables.tf` file with your desired configuration. For example, set the instance types, key pair name, and number of instances.
-
 4. **Initialize Terraform**: Run the following command to initialize Terraform. This will download the necessary provider plugins.
 
-    ```bash
-    terraform init
-    ```
-
+   ```bash
+   terraform init
+   ```
 5. **Plan the Deployment**: Run the following command to see a preview of the resources that will be created by Terraform.
 
-    ```bash
-    terraform plan
-    ```
-
+   ```bash
+   terraform plan
+   ```
 6. **Apply the Deployment**: Run the following command to apply the configuration and provision the infrastructure.
 
-    ```bash
-    terraform apply
-    ```
-
+   ```bash
+   terraform apply
+   ```
 7. **Access the JMeter Master**: After the infrastructure is provisioned, you can access the JMeter master instance using the public IP address provided in the outputs. Use SSH to connect to the instance.
-
 8. **Run JMeter Tests**: Follow the instructions provided in the JMeter setup to run your performance tests.
 
 ## Cleaning Up
