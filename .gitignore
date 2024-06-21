@@ -1,0 +1,6 @@
+terraform-jmeter-distribution/.terraform
+terraform-jmeter-distribution/.terraform.lock.hcl
+terraform-jmeter-distribution/terraform.tfstate.backup
+terraform-jmeter-distribution/terraform.tfstate
+.DS_Store
+terraform-jmeter-distribution/Test.pem

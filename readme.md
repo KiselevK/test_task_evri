@@ -102,7 +102,7 @@ After test it will genarete a folder with results and create a link to report
 3. The script will execute the JMeter test plan and generate a report.
 4. The report will be served via a Docker container. Access the report at `http://localhost:<port>/index.html`.
 
-## Prerequisites
+### Prerequisites
 
 * Docker
 * JMeter
