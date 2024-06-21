@@ -30,5 +30,5 @@ output "tls_private_key_value" {
 
 
 output "jmeter_report_link"{
-  value = "http://${aws_instance.jmeter_client_instance.public_dns}:8080-8085/index.html"
+  value = "http://${aws_instance.jmeter_client_instance.public_dns}:8080/index.html"
 }
